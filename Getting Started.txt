@@ -1,0 +1,56 @@
+Getting Started
+Welcome to the NM i AI 2026 documentation. The competition kicks off March 19, 2026 — but right now, you can get a head start with the Grocery Bot Challenge, a pre-competition warm-up to get familiar with the platform and get the competitive spirit going.
+What's Live Right Now
+
+Team registration — sign up with Google, create or join a team
+Grocery Bot Challenge — build a bot that controls a swarm of workers in a grocery store
+Leaderboard — compete for the top spot across 4 difficulty maps
+
+The main competition tasks (Computer Vision, Language Model, Machine Learning) will be revealed when the competition launches on March 19.
+Grocery Bot Challenge
+The Grocery Bot is a warm-up challenge to get you familiar with the platform and have some fun before the real competition starts.
+How it works:
+
+Sign in at app.ainm.no with Google
+Create or join a team
+Go to the Challenge page, pick a difficulty, click Play
+Connect your bot via WebSocket and respond with actions each round
+Your best score per map is saved — leaderboard = sum of all 4 maps
+
+Read the full Grocery Bot documentation for the complete API spec, game mechanics, and example code.
+Quick Overview
+Your bot connects to the game server via WebSocket. Each round, the server sends you the full game state and you respond with actions for your bots.
+Server sends game state → Your Bot (via WebSocket)
+         ↓
+Your bot returns actions for each bot
+         ↓
+Game state updates, next round begins
+         ↓
+Repeat for up to 300 rounds (120s wall-clock limit)
+
+How to Run
+Your bot runs locally as a Python script that connects to the game server:
+import asyncio
+import websockets
+ 
+async def play():
+    async with websockets.connect("wss://game.ainm.no/ws?token=YOUR_TOKEN") as ws:
+        while True:
+            state = await ws.recv()
+            # ... decide actions ...
+            await ws.send('{"actions": [...]}')
+ 
+asyncio.run(play())
+Get a token by clicking "Play" on a map at app.ainm.no/challenge.
+Requirements
+
+Python 3.10+ with websockets library (pip install websockets)
+Respond within 2 seconds per round
+Handle game_over messages to exit cleanly
+
+Need Help?
+
+Join the competition Slack for questions and discussion
+Use the MCP server with Claude Code for AI-assisted development:
+
+claude mcp add --transport http nmiai https://mcp-docs.ainm.no/mcp
