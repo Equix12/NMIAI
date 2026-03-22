@@ -17,9 +17,22 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+*.Zone.Identifier
 
 # Logs
 *.log
 
 # Large files
 tripletex_openapi.json
+*.onnx
+norgesgruppen/*.zip
+norgesgruppen/*.pt
+norgesgruppen/NM_NGD_coco_dataset.zip
+norgesgruppen/NM_NGD_product_images.zip
+
+# Raw data directories
+norgesgruppen/product_images/
+norgesgruppen/dataset/
+norgesgruppen/yolo_dataset/
+norgesgruppen/runs/
+norgesgruppen/submission/
