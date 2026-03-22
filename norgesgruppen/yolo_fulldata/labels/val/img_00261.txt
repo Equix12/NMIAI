@@ -1,0 +1,1 @@
+/home/haava/NMAI/norgesgruppen/yolo_fulldata/labels/train/img_00261.txt

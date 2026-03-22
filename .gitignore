@@ -1,0 +1,29 @@
+# Environment and secrets
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Large files (>100MB, can't push to GitHub without LFS)
+*.onnx
+norgesgruppen/*.zip
+norgesgruppen/*.pt
+norgesgruppen/NM_NGD_coco_dataset.zip
+norgesgruppen/NM_NGD_product_images.zip
+
+# Raw data directories
+norgesgruppen/product_images/
+norgesgruppen/dataset/
+norgesgruppen/yolo_dataset/
+norgesgruppen/runs/
+norgesgruppen/submission/
+*.Zone.Identifier
+
+# Logs
+astar-island/watcher.log
+astar-island/solve_round*.log
+
+# OS
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
